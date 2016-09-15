@@ -14,7 +14,7 @@ public class Player {
     private int size = 30;
     private float xVelocity;
     private float yVelocity;
-    private float xDrag = 0.4f;
+    private float xDrag = 0.2f;
     private float terminalYVelocity = -20;
     private float jumpHeight = 25f;
     private float jumpWidth = 10f;

@@ -28,17 +28,17 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback{
     // possible world variables
     private boolean isPlaying = true;
     private int gamestate = 1;
-    public static float gravity = 1f;
+    public static float gravity = 0.8f;
 
     // player stuff
-    private int playerCount = 1;
+    //private int playerCount = 1; -- no longer used. application variable now.
     private float score = 0;
-    private Player[] players = new Player[playerCount];
+    private Player[] players = new Player[MyApplication.difficulty];
 
     // color stuff
     private float hue;
-    private float value = 1f;
-    private float saturation = 0.3f;
+    //private float value = 1f; -- no longer used. application variable now.
+    //private float saturation = 0.3f; -- no longer used. application variable now.
     private float colorChangeSpeed = 2f;
 
     // platform stuff
@@ -61,7 +61,7 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback{
 
     private void setPlayerStartingPositions() {
         for (int i = 0; i < players.length; i++){
-            players[i] = new Player(getWidth() / (playerCount + 1) * (i + 1), getHeight()/2);
+            players[i] = new Player(getWidth() / (MyApplication.difficulty + 1) * (i + 1), getHeight()/2);
 
         }
     }
@@ -122,10 +122,13 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback{
         if(getHolder().getSurface().isValid()){
             canvas = getHolder().lockCanvas();
 
+            if(canvas == null){
+                return;
+            }
             // draw things here
 
-            float[] backgroundColor = {hue, saturation, value};
-            float[] otherColor = {oppositeHue(), saturation, value};
+            float[] backgroundColor = {hue, MyApplication.saturation, MyApplication.value};
+            float[] otherColor = {oppositeHue(), MyApplication.saturation, MyApplication.value};
 
             paint.setColor(Color.HSVToColor(backgroundColor));
             // Draw the background color
@@ -138,7 +141,7 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback{
             paint.setTextSize(50);
 
             // Display the current fps on the screen
-            canvas.drawText("Score:" + score, 20, 70, paint);
+            canvas.drawText("Score: " + (int) score, 20, 70, paint);
 
             // draw players
             for(Player p: players){
@@ -216,7 +219,7 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback{
             avgY += p.getY();
         }
 
-        avgY /= playerCount;
+        avgY /= MyApplication.difficulty;
         cameraY = avgY - getHeight() / 2;
     }
 
