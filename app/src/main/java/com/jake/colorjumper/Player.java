@@ -40,7 +40,7 @@ public class Player {
     public void move(){
         if(xVelocity > 0){
             xVelocity -= xDrag;
-            if(x < GameView.width){
+            if(x + size < GameView.width){
                 x += xVelocity;
             }
         } else if (xVelocity < 0){

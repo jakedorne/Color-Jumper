@@ -37,7 +37,9 @@
             android:layout_weight="1"
             android:clickable="true"
             android:onClick="toggleDifficulty"
-            android:checked="true" />
+            android:checked="true"
+            android:textColor="@android:color/black"
+            android:padding="16dp" />
     </LinearLayout>
 
     <TextView
