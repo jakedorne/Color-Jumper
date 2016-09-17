@@ -2,22 +2,26 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.jake.colorjumper">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
-        android:label="Jake's Game"
+        android:label="Jake&apos;s Game"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name="com.jake.colorjumper.MainActivity">
+        <activity android:name=".views.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <activity android:name="com.jake.colorjumper.SettingsActivity"></activity>
-        <activity android:name="com.jake.colorjumper.GameActivity"></activity>
-        <activity android:name="com.jake.colorjumper.LoseActivity"></activity>
+        <activity android:name=".views.SettingsActivity" />
+        <activity android:name=".views.GameActivity" />
+        <activity android:name=".views.LoseActivity" />
+        <activity android:name=".views.HighScoresActivity" />
+        <activity android:name=".views.SubmitScoreActivity"></activity>
     </application>
 
 </manifest>

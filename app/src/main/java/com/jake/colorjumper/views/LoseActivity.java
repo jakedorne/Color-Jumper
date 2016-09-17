@@ -13,6 +13,8 @@ import com.jake.colorjumper.R;
  */
 public class LoseActivity extends Activity {
 
+    private int score;
+
     public void restart(View view){
         Intent intent = new Intent(this, GameActivity.class);
         startActivity(intent);
@@ -24,7 +26,9 @@ public class LoseActivity extends Activity {
     }
 
     public void submitScore(View view){
-
+        Intent submitScore = new Intent(getApplicationContext(), SubmitScoreActivity.class);
+        submitScore.putExtra("Score", score);
+        startActivity(submitScore);
     }
 
     public void highscores(View view){
@@ -36,12 +40,14 @@ public class LoseActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.lose);
+
+        Bundle b = getIntent().getExtras();
+        score = b.getInt("Score");
+
         setScore();
     }
 
     public void setScore(){
-        Bundle b = getIntent().getExtras();
-        int score = b.getInt("Score");
         TextView text = (TextView) findViewById(R.id.score_list_score);
         text.setText("Score: "+score);
     }

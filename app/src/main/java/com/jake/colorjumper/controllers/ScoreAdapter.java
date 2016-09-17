@@ -32,7 +32,7 @@ public class ScoreAdapter extends ArrayAdapter<Score> {
         TextView scoreText = (TextView) view.findViewById(R.id.score_list_score);
 
         nameText.setText(score.getName());
-        scoreText.setText(score.getScore());
+        scoreText.setText(String.valueOf(score.getScore()));
 
         return view;
     }

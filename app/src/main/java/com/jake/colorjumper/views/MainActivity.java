@@ -16,7 +16,7 @@ public class MainActivity extends Activity {
 
     }
 
-    public void highscores(View view){
+    public void highScores(View view){
         Intent highscore = new Intent(getApplicationContext(), HighScoresActivity.class);
         startActivity(highscore);
     }

@@ -10,6 +10,11 @@ import android.view.MotionEvent;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 
+import com.jake.colorjumper.controllers.GameThread;
+import com.jake.colorjumper.models.Platform;
+import com.jake.colorjumper.models.Player;
+import com.jake.colorjumper.views.LoseActivity;
+
 import java.util.Random;
 
 /**
