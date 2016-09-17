@@ -1,6 +1,8 @@
-package com.jake.colorjumper;
+package com.jake.colorjumper.models;
 
 import android.graphics.Rect;
+
+import com.jake.colorjumper.GameView;
 
 import java.util.Random;
 

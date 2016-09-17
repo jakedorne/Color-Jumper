@@ -1,10 +1,13 @@
-package com.jake.colorjumper;
+package com.jake.colorjumper.views;
 
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.SeekBar;
 import android.widget.ToggleButton;
+
+import com.jake.colorjumper.MyApplication;
+import com.jake.colorjumper.R;
 
 /**
  * Created by jake on 13/05/16.

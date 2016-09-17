@@ -1,8 +1,10 @@
-package com.jake.colorjumper;
+package com.jake.colorjumper.views;
 
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+
+import com.jake.colorjumper.GameView;
 
 /**
  * Created by jake on 13/05/16.

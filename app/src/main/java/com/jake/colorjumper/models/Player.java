@@ -1,8 +1,10 @@
-package com.jake.colorjumper;
+package com.jake.colorjumper.models;
 
 import android.graphics.Rect;
 import android.graphics.drawable.shapes.RectShape;
 import android.graphics.drawable.shapes.Shape;
+
+import com.jake.colorjumper.GameView;
 
 /**
  * Created by jake on 13/05/16.

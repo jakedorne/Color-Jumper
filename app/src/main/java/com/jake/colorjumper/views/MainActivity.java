@@ -1,10 +1,11 @@
-package com.jake.colorjumper;
+package com.jake.colorjumper.views;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+
+import com.jake.colorjumper.R;
 
 public class MainActivity extends Activity {
 
@@ -13,6 +14,11 @@ public class MainActivity extends Activity {
         Intent game = new Intent(getApplicationContext(), GameActivity.class);
         startActivity(game);
 
+    }
+
+    public void highscores(View view){
+        Intent highscore = new Intent(getApplicationContext(), HighScoresActivity.class);
+        startActivity(highscore);
     }
 
 

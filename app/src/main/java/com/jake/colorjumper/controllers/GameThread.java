@@ -1,4 +1,6 @@
-package com.jake.colorjumper;
+package com.jake.colorjumper.controllers;
+
+import com.jake.colorjumper.GameView;
 
 /**
  * Created by jake on 13/05/16.
