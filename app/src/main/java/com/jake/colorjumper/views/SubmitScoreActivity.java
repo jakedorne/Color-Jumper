@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 
+import com.jake.colorjumper.MyApplication;
 import com.jake.colorjumper.R;
 import com.jake.colorjumper.models.Score;
 
@@ -45,7 +46,13 @@ public class SubmitScoreActivity extends Activity {
     public void submitScore(View view){
         EditText nameField = (EditText) findViewById(R.id.scoreSubmissionName);
         name = nameField.getText().toString();
-        new SubmitScoreTask().execute("https://heroku-postgres-4d67b95d.herokuapp.com/easy");
+        String url = "";
+        if(MyApplication.difficulty==1){
+            url = "https://heroku-postgres-4d67b95d.herokuapp.com/easy";
+        } else {
+            url = "https://heroku-postgres-4d67b95d.herokuapp.com/hard";
+        }
+        new SubmitScoreTask().execute(url);
     }
 
     private class SubmitScoreTask extends AsyncTask<String, Void, String> {

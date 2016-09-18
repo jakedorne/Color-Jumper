@@ -39,7 +39,35 @@
 
     <ListView
         android:layout_width="match_parent"
-        android:layout_height="190dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
         android:id="@+id/listView" />
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ToggleButton
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="New ToggleButton"
+            android:id="@+id/highscoreToggleButton"
+            android:textOn="Hard"
+            android:textOff="Easy"
+            android:textColor="@android:color/black"
+            android:onClick="toggleDifficultyScore"
+            android:enabled="true"
+            android:checked="false"
+            android:clickable="true" />
+    </LinearLayout>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Main Menu"
+        android:id="@+id/button2"
+        android:textColor="@android:color/black"
+        android:onClick="mainMenu" />
 
 </LinearLayout>

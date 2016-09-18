@@ -2,9 +2,13 @@ package com.jake.colorjumper.views;
 
 import android.app.Activity;
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ListView;
+import android.widget.ToggleButton;
 
 import com.jake.colorjumper.R;
 import com.jake.colorjumper.models.Score;
@@ -29,12 +33,20 @@ import java.util.List;
 public class HighScoresActivity extends Activity {
 
     private ListView listView;
+    private String url;
+
+    private ToggleButton button;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.highscores);
+
         listView = (ListView) findViewById(R.id.listView);
+        button = (ToggleButton) findViewById(R.id.highscoreToggleButton);
+
+        // sets highscore to show easy highscores by default.
+        url = "https://heroku-postgres-4d67b95d.herokuapp.com/easy";
 
         getHighscores();
     }
@@ -45,8 +57,22 @@ public class HighScoresActivity extends Activity {
         listView.invalidateViews();
     }
 
+    public void mainMenu(View view){
+        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+        startActivity(intent);
+    }
+
+    public void toggleDifficultyScore(View view){
+        if(url.equals("https://heroku-postgres-4d67b95d.herokuapp.com/easy")){
+            url = "https://heroku-postgres-4d67b95d.herokuapp.com/hard";
+        } else {
+            url = "https://heroku-postgres-4d67b95d.herokuapp.com/easy";
+        }
+        getHighscores();
+    }
+
     public void getHighscores() {
-        new GetScoresTask().execute("https://heroku-postgres-4d67b95d.herokuapp.com/easy");
+        new GetScoresTask().execute(url);
     }
 
     private class GetScoresTask extends AsyncTask<String, Void, List<Score>> {
